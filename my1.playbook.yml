@@ -4,7 +4,7 @@
   tasks:
 
   - name: Ensure that vim editor installed.
-    apt: name=vim state=present
+    apt: name=net-tools state=present
 
   - name: Change ssh config
     lineinfile:
