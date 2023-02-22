@@ -4,7 +4,7 @@
   tasks:
 
   - name: Ensure that vim editor installed.
-    yum: name=vim state=present
+    apt: name=vim state=present
 
   - name: Change ssh config
     lineinfile:
