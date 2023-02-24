@@ -27,3 +27,8 @@
         src: /root/my_apache/kafka-3.4.0-src.tgz
         dest: /root/my_apache/
         remote_src: yes
+    
+    #- name: Recursively remove directory
+     # file:
+      #  path: /root/my_apache/
+       # state: absent
