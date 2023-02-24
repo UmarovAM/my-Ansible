@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: true
+  vars:
+    my_var: Have a nice day, dear admnistarator! 
+  tasks:
+    - name: Change /etc/motd 
+      copy:
+        content: "{{ my_var }}"
+        - "{{ ansible_facts.default_ipv4.address }}"
+        - "{{  ansible_facts.hostname }}"
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: 0777

@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: true
+  vars:
+    my_var: my_Welcome! 
+  tasks:
+    - name: Change /etc/motd 
+      copy:
+        content: "{{ my_var }}"
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: 0777
