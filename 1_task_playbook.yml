@@ -1,0 +1,23 @@
+--- # ansible --version ansible 2.7.7
+- hosts: all
+  become: yes
+  #vars:
+    #myurl: "https://downloads.apache.org/kafka/3.4.0/kafka-3.4.0-src.tgz"
+    #mycrc: "sha512:https://downloads.apache.org/kafka/3.4.0/kafka-3.4.0-src.tgz.sha512"    #mydest: "/root/my_apache"
+  tasks:
+    - name: Make directory
+      file:
+        path: /root/my_apache
+        #"{{ mydest }}"
+        state: directory
+        #owner: aziz0123
+        #group: wheel
+        #mode: '0777'
+    - name: Download file
+      get_url:
+        url: https://downloads.apache.org/kafka/3.4.0/kafka-3.4.0-src.tgz
+        dest: /root/my_apache
+        #checksum: "{{ mycrc }}"
+        #mode: '0644'
+        #owner: aziz0123
+        #group: wheel
