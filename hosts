@@ -1,0 +1,4 @@
+root@debian0123:~# grep "^[^#*/;]" /etc/ansible/hosts
+[all]
+192.168.31.133 ansible_ssh_user=aziz0123 ansible_ssh_pass=8808
+192.168.31.14 ansible_ssh_user=aziz0123 ansible_ssh_pass=8808
