@@ -2,14 +2,14 @@
 - hosts: all
   become: yes
   vars:
-    my_var: Have a nice day, dear admnistarator!
+    my_var: Have a nice day, dear administarator!
   tasks:
     - name: Change /etc/motd
       copy:
         content:
           - "{{ my_var }}"
-          - "{{ ansible_facts.default_ipv4.address}}"
-          - "{{ ansible_facts.hostname}}"
+          - "IPv4 adress: {{ ansible_facts.default_ipv4.address }}"
+          - "Hostname: {{ ansible_facts.hostname }}"
         dest: /etc/motd
         owner: root
         group: root
