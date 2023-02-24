@@ -1,11 +1,12 @@
---- # ansible --version ansible 2.7.7
+
+---
 - hosts: all
   become: yes
   #vars:
     #myurl: "https://downloads.apache.org/kafka/3.4.0/kafka-3.4.0-src.tgz"
     #mycrc: "sha512:https://downloads.apache.org/kafka/3.4.0/kafka-3.4.0-src.tgz.sha512"    #mydest: "/root/my_apache"
   tasks:
-    - name: Make directory
+    - name: Make directory /root/my_apache
       file:
         path: /root/my_apache
         #"{{ mydest }}"
@@ -13,7 +14,7 @@
         #owner: aziz0123
         #group: wheel
         #mode: '0777'
-    - name: Download file
+    - name: Download file into /root/my_apache
       get_url:
         url: https://downloads.apache.org/kafka/3.4.0/kafka-3.4.0-src.tgz
         dest: /root/my_apache
@@ -21,3 +22,8 @@
         #mode: '0644'
         #owner: aziz0123
         #group: wheel
+    - name: Extract tgz into /root/my_apache
+      unarchive:
+        src: /root/my_apache/kafka-3.4.0-src.tgz
+        dest: /root/my_apache/
+        remote_src: yes
