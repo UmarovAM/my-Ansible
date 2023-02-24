@@ -6,7 +6,7 @@
     #myurl: "https://downloads.apache.org/kafka/3.4.0/kafka-3.4.0-src.tgz"
     #mycrc: "sha512:https://downloads.apache.org/kafka/3.4.0/kafka-3.4.0-src.tgz.sha512"    #mydest: "/root/my_apache"
   tasks:
-    - name: Make directory /root/my_apache
+    - name: Make directory into /root/my_apache
       file:
         path: /root/my_apache
         #"{{ mydest }}"
