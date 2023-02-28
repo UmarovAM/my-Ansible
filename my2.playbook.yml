@@ -24,6 +24,6 @@
         - nginx
       state: latest
 
-  - name: Current ip adress
+  - name: Current ip
     debug:
       msg: "https://{{ ansible_facts.all_ipv4_addresses[1] }}:80"
