@@ -1,0 +1,29 @@
+---
+- name: Install packeges
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Ensure that required packeges are installed
+    apt: 
+      name:
+        - net-tools
+        - Curl
+        - epel-release
+        - ca-certificates
+        - mc
+      state: latest
+
+- name: Start services
+  hosts: nginx
+  become: yes
+  tasks:
+  - name: Ensure that nginx installed
+    apt: 
+      name:
+        - nginx
+      state: latest
+
+  - name: Current ip adress
+    debug:
+      msg: "https://{{ ansible_facts.all_ipv4_addresses[1] }}:80"
