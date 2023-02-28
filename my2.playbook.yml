@@ -1,6 +1,7 @@
 ---
 - name: Install packeges
   hosts: webservers
+  gather_facts: false
   become: yes
   tasks:
 
@@ -14,10 +15,13 @@
         - mc
       state: latest
 
+
+
 - name: Start services
   hosts: nginx
   become: yes
   tasks:
+  
   - name: Ensure that nginx installed
     apt: 
       name:
@@ -26,4 +30,23 @@
 
   - name: Current ip
     debug:
-      msg: "https://{{ ansible_facts.all_ipv4_addresses[1] }}:80"
+      msg: "https://{{ ansible_facts.default_ipv4.address }}:80"
+  
+  - name: Modyfy file
+    shell:
+      cmd: "echo hello > mynewfile.txt"
+      chdir: "/root/"
+
+  - name: Create file 2
+    file:
+      path: "/root/"
+      owner: root
+      group: root
+      mode: "0644"
+      state: touch
+
+  - name: Change file text
+    lineinfile:
+      path: /root/mynewfile.txt
+      regexp: '^hello'
+      line: Helllo2
