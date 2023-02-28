@@ -1,4 +1,15 @@
-root@debian0123:~# grep "^[^#*/;]" /etc/ansible/hosts
-[all]
+# root@debian0123:~# grep "^[^#*/;]" /etc/ansible/hosts
+
+# INI FORMAT 
+[webservers:children]
+nginx
+apache
+
+[nginx]
 192.168.31.133 ansible_ssh_user=aziz0123 ansible_ssh_pass=8808
+[apache]
 192.168.31.14 ansible_ssh_user=aziz0123 ansible_ssh_pass=8808
+
+#[all]
+#192.168.31.133 ansible_ssh_user=aziz0123 ansible_ssh_pass=8808
+#192.168.31.14 ansible_ssh_user=aziz0123 ansible_ssh_pass=8808
