@@ -1,6 +1,6 @@
 ---
 - name: Install packeges
-  hosts: all
+  hosts: webservers
   become: yes
   tasks:
 
