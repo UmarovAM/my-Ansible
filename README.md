@@ -1,11 +1,12 @@
 # my-Ansible
 # ad-hoc commands
+```
 ansible-doc shell
 ansible localhost -m setup #facts about localhost
 ansible-playbook myscript.yaml --syntax-check
-
+```
 # playbook.yml
-'''
+```
 ---
 - name: Install packeges
   hosts: webservers
@@ -39,6 +40,6 @@ ansible-playbook myscript.yaml --syntax-check
   - name: install tuned
     apt:
       name: tuned
-'''
+```
 # roles
     galaxy.ansible.com
