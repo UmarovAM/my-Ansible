@@ -45,7 +45,12 @@ ansible-playbook myscript.yaml --syntax-check
     galaxy.ansible.com
     ansible-galaxy install geerlingguy.apache -p ./
 ```
-    ---
+---
+- hosts: all
+  roles:
+    - myrole
+#or
+---
 - name: Install packeges
   hosts: webservers
   gather_facts: false
