@@ -18,4 +18,14 @@
     enabled: true
     masked: no
 - name: Curl
-  command: "curl {{ ansible_facts.default_ipv4.address }}"
+  command: "curl {{ ansible_facts.default_ipv4.address }}:80"
+
+- name: Check that a page returns a status 200
+  uri:
+    url: "http://localhost:80/"
+    method: GET
+  register: this
+
+- name: debug 200
+  debug:
+    var: this.status
