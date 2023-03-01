@@ -73,4 +73,3 @@ or
       vars:
         username: "Aziz2"
 ```
-image.png
