@@ -43,7 +43,7 @@ ansible-playbook myscript.yaml --syntax-check
 ```
 # roles
     galaxy.ansible.com
-    ```
+```
     ---
 - name: Install packeges
   hosts: webservers
@@ -51,4 +51,4 @@ ansible-playbook myscript.yaml --syntax-check
   become: yes
   roles:
     - myrole
-    ```
+```
