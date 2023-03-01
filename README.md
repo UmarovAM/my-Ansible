@@ -54,6 +54,7 @@ ansible-playbook myscript.yaml --syntax-check
     - files
   roles:
     - myrole
+<<<<<<< HEAD
 
 or
 
@@ -73,3 +74,4 @@ or
       vars:
         username: "Aziz2"
 ```
+![image](https://user-images.githubusercontent.com/118117183/222061281-9f5a913d-40bb-4849-95a9-fcbab163adaa.png)
