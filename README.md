@@ -54,9 +54,8 @@ ansible-playbook myscript.yaml --syntax-check
     - files
   roles:
     - myrole
-<<<<<<< HEAD
 
-or
+#or
 
 - name: Current ip
   debug:
@@ -75,3 +74,38 @@ or
         username: "Aziz2"
 ```
 ![image](https://user-images.githubusercontent.com/118117183/222061281-9f5a913d-40bb-4849-95a9-fcbab163adaa.png)
+
+# main.yml
+```
+---
+# tasks file for myrole
+- name: Install apache2
+  become: yes
+  package:
+    name: apache2
+    state: present
+
+- name: Make index.html
+  template:
+    src: templates/indexhtml.j2
+    dest: "{{ ansible_user_dir }}/index.html"
+
+- name: Starting apache2
+  become: yes
+  systemd:
+    name: apache2
+    enabled: true
+    masked: no
+- name: Curl
+  command: "curl {{ ansible_facts.default_ipv4.address }}:80"
+
+- name: Check that a page returns a status 200
+  uri:
+    url: "http://localhost:80/"
+    method: GET
+  register: this
+
+- name: debug 200
+  debug:
+    var: this.status
+```
