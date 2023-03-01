@@ -1,0 +1,32 @@
+---
+- name: Current ip
+  debug:
+    msg: " Hello {{ username }}!"
+
+- name: Modyfy file
+  shell:
+    cmd: "echo hello > mynewfile.txt"
+    chdir: "/root/"
+
+- name: Create file 2
+  file:
+    path: "{{default_path}}"
+    owner: root
+    group: root
+    mode: "0644"
+    state: touch
+
+- name: Change file text
+  lineinfile:
+    path: /root/mynewfile.txt
+    regexp: '^hello'
+    line: " Hello {{ username }}!"
+    
+- name: Create hello.html
+  template:
+    src: "hello.html.j2"
+    dest: "/root/hello.html"
+    owner: root
+    group: root
+    mode: "0644"
+    state: touch

@@ -43,3 +43,12 @@ ansible-playbook myscript.yaml --syntax-check
 ```
 # roles
     galaxy.ansible.com
+    ```
+    ---
+- name: Install packeges
+  hosts: webservers
+  gather_facts: false
+  become: yes
+  roles:
+    - myrole
+    ```
