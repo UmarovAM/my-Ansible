@@ -1,0 +1,21 @@
+---
+# tasks file for myrole
+- name: Install apache2
+  become: yes
+  package:
+    name: apache2
+    state: present
+
+- name: Make index.html
+  template:
+    src: templates/indexhtml.j2
+    dest: "{{ ansible_user_dir }}/index.html"
+
+- name: Starting apache2
+  become: yes
+  systemd:
+    name: apache2
+    enabled: true
+    masked: no
+- name: Curl
+  command: "curl {{ ansible_facts.default_ipv4.address }}"

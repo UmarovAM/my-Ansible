@@ -43,12 +43,34 @@ ansible-playbook myscript.yaml --syntax-check
 ```
 # roles
     galaxy.ansible.com
+    ansible-galaxy install geerlingguy.apache -p ./
 ```
     ---
 - name: Install packeges
   hosts: webservers
   gather_facts: false
   become: yes
+  tags: 
+    - files
   roles:
     - myrole
+
+or
+
+- name: Current ip
+  debug:
+    msg: "https://{{ ansible_facts.default_ipv4.address }}:80"
+
+- name: Install packeges
+  hosts: all
+  gather_facts: false
+  become: yes
+  tags: 
+    - packages
+  roles:
+    - name: "test"
+      role: myrole
+      vars:
+        username: "Aziz2"
 ```
+image.png

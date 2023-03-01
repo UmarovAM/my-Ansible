@@ -3,6 +3,8 @@
   hosts: webservers
   gather_facts: false
   become: yes
+  tags: 
+    - packeges
   tasks:
 
   - name: Ensure that required packeges are installed
