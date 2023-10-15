@@ -1,3 +1,4 @@
+```
 cat  /etc/os-release
 python --version
 apt install git python3-pip
@@ -469,3 +470,4 @@ nano side.yml
 
 ansible-playbook -i hosts side.yml
 
+```
