@@ -1,4 +1,4 @@
-```
+```bash
 cat  /etc/os-release
 python --version
 apt install git python3-pip
@@ -8,16 +8,18 @@ python --version
 pip3 install ansible
 pwd
 
- nano ansible.cfg
-
+nano ansible.cfg
+```
+```yml
 [defaults]
 Inventory=/root/ansible/hosts
 Host_key_chechking=false
-#:W+q Vim
-
+```
+```bash
 mkdir ansible
 touch hosts
-
+```
+```
 [all] #группа
 client1 ansible_host=192.168.31.106 ansible_user=aziz ansible_password=8808        
 client2 ansible_host=192.168.31.106 ansible_user=root ansible_ssh_private_key_file=/root/.ssh/id_rsa 
